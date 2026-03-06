@@ -30,7 +30,7 @@ Après avoir importé la machine virtuelle et l’avoir démarrée, connectez-vo
 Username : mobexler  
 Password : mobexler
 
-![Connexion Mobexler](Images/{91CB21DF-A518-4CD8-9047-A191FB678813})
+![Connexion Mobexler](Images/{91CB21DF-A518-4CD8-9047-A191FB678813}.png)
 
 ---
 
@@ -46,7 +46,7 @@ ping -c 2 8.8.8.8
 
 Cette commande permet de vérifier que la VM peut communiquer avec Internet.
 
-![Test réseau](Images/{C907307B-70B8-4D76-A55C-567C70EF3FE7})
+![Test réseau](Images/{C907307B-70B8-4D76-A55C-567C70EF3FE7}.png)
 
 ---
 
@@ -60,7 +60,7 @@ CLEAN_BASELINE_TP1
 
 Ce snapshot permettra de restaurer rapidement l’environnement initial du laboratoire.
 
-![Snapshot](Images/{9A080E63-1AED-46C8-BB37-6D5D75222C2E})
+![Snapshot](Images/{9A080E63-1AED-46C8-BB37-6D5D75222C2E}.png)
 
 ---
 
@@ -77,4 +77,4 @@ adb devices
 
 Si tout fonctionne correctement, votre appareil Android apparaîtra dans la liste des périphériques connectés.
 
-![ADB Devices](Images/{F6ABE84D-C3C5-4829-A105-750FE45643EB})
+![ADB Devices](Images/{F6ABE84D-C3C5-4829-A105-750FE45643EB}.png)
