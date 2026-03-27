@@ -1,5 +1,8 @@
 # LAB 2 — Rooting Android
 
+
+---
+
 ## 1. Objectif du laboratoire
 
 L’objectif de ce laboratoire est de comprendre l’impact du **rooting** sur la sécurité Android, de vérifier l’accès root sur un émulateur, d’installer une application de test, d’inspecter son stockage local et de remettre l’environnement à zéro à la fin de la séance.
