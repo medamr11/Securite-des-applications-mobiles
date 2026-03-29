@@ -29,14 +29,6 @@ Consulter le contenu de la requête HTTP dans l’onglet **RAW** afin d’examin
 # Étape 6
 Tester l’interception des requêtes en activant l’option **"Intercept is on"**.
 
-## Étape 6 - 1
-Activer l’interception en cliquant sur le bouton **"Intercept is off"**. À ce moment-là, la requête HTTP reste bloquée en attente dans **Burp Suite** :
-
-![Intercept is on](./images/6-1.png)
-
-## Étape 6 - 2
-Désactiver ensuite l’interception pour autoriser la requête à continuer normalement :
-
 ![Intercept is off](./images/6-2.png)
 
 # Étape 7
@@ -48,11 +40,6 @@ Accéder aux paramètres de gestion des certificats **CA** afin de lancer l’in
 ![CA Certificat](./images/7-1.png)
 
 ## Étape 7 - 2
-Une fois le certificat installé, une notification indique qu’un certificat a été ajouté par une source tierce :
-
-![Installation de CA Certificat](./images/7-2.png)
-
-## Étape 7 - 3
 Après l’installation du certificat, la connexion devient sécurisée pour les échanges **HTTP** et **HTTPS** :
 
 ![Secure Connection](./images/7-3.png)
