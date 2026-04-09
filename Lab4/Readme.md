@@ -1,8 +1,7 @@
 # Rapport d’analyse statique de l’APK UnCrackable-Level1
 
 ## 1. Informations de base
-- **Date :** 3 mars 2026  
-- **Analyste :** 403f2e  
+- **Date :** 3 mars 2026    
 - **Application analysée :** UnCrackable-Level1.apk  
 - **Version :** 1.0 (`versionCode: 1`)  
 - **Source :** OWASP MSTG  
