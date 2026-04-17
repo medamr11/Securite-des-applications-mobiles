@@ -2,7 +2,7 @@
 
 ## 🛠️ Environment Setup
 
-![MobSF Startup](./images/1.png)
+![MobSF Startup](./Images/1.png)
 
 **Figure 1 — MobSF Initialization**
 
@@ -13,7 +13,7 @@ The framework starts a web server on `http://0.0.0.0:8000` using Gunicorn, ready
 
 ## 📤 Uploading the APK
 
-![Upload Interface](./images/2.png)
+![Upload Interface](./Images/2.png)
 
 **Figure 2 — MobSF Upload Interface**
 
@@ -24,7 +24,7 @@ The interface allows drag-and-drop or manual upload.
 
 ## 📊 General Scan Results
 
-![Scan Overview](./images/3.png)
+![Scan Overview](./Images/3.png)
 
 **Figure 3 — Static Analysis Overview**
 
@@ -39,7 +39,7 @@ This gives a quick understanding of the app’s security posture.
 
 ## ⚠️ Manifest Analysis
 
-![Manifest Analysis](./images/4.png)
+![Manifest Analysis](./Images/4.png)
 
 **Figure 4 — AndroidManifest Security Issues**
 
@@ -55,7 +55,7 @@ These misconfigurations can be exploited by attackers.
 
 ## 🔐 Permissions Analysis
 
-![Permissions](./images/5.png)
+![Permissions](./Images/5.png)
 
 **Figure 5 — Application Permissions**
 
@@ -69,7 +69,7 @@ These permissions may expose sensitive user data if abused.
 
 ## 🌐 Domain & Network Check
 
-![Domain Check](./images/6.png)
+![Domain Check](./Images/6.png)
 
 **Figure 6 — Domain Malware Check**
 
@@ -87,7 +87,7 @@ Useful for detecting suspicious communications.
 
 ## 🧠 Code Analysis
 
-![Code Analysis](./images/7.png)
+![Code Analysis](./Images/7.png)
 
 **Figure 7 — Source Code Vulnerabilities**
 
@@ -105,7 +105,7 @@ Mapped to:
 
 ## 📚 Security Standard Reference
 
-![OWASP MASVS](./images/8.png)
+![OWASP MASVS](./Images/8.png)
 
 **Figure 8 — OWASP MASVS Standard**
 
@@ -120,7 +120,7 @@ MobSF findings are aligned with **OWASP MASVS**, which defines best practices fo
 
 ## 📄 Final Report
 
-![PDF Report](./images/9.png)
+![PDF Report](./Images/9.png)
 
 **Figure 9 — Generated PDF Report**
 
