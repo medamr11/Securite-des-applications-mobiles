@@ -1,27 +1,5 @@
 # Write-up — Challenge Android `snake.apk`
 
-## 📌 Objectif du challenge
-
-L’objectif est d’analyser l’APK Android `snake.apk` afin d’identifier le chemin d’exécution caché qui permet d’obtenir le flag.  
-Le challenge repose principalement sur :
-
-- l’analyse statique de l’application
-- l’utilisation de `adb`
-- l’inspection du code avec `jadx`
-- l’exploitation d’une désérialisation YAML via **SnakeYAML**
-
----
-
-## 🛠️ Outils utilisés
-
-- `adb`
-- `apktool`
-- `jadx-gui`
-- un **AVD non rooté** depuis Android Studio
-- `logcat`
-
----
-
 ## 1. Installation de l’APK
 
 On commence par installer l’application sur l’émulateur Android :
@@ -45,6 +23,12 @@ Après décompilation, on peut voir dans le manifest que l’application demande
 ```
 
 Cela suggère fortement que l’application lit un fichier externe pour déclencher une logique cachée.
+
+### Capture d’écran — AndroidManifest.xml
+
+![AndroidManifest.xml](Images/1.png)
+
+*Figure 1 : Permissions de stockage visibles dans le manifest de l’application.*
 
 ---
 
@@ -84,6 +68,12 @@ Ensuite, elle tente d’ouvrir le fichier suivant :
 ```
 
 Si le fichier n’existe pas, l’application écrit une erreur dans les logs.
+
+### Capture d’écran — `MainActivity`
+
+![MainActivity](Images/2.png)
+
+*Figure 2 : Vue de `MainActivity` dans JADX, avec les mécanismes de détection et la logique intéressante à analyser.*
 
 ---
 
@@ -212,6 +202,14 @@ Une fois le fichier en place, on relance l’activité avec l’extra correct :
 adb shell am start -n com.pwnsec.snake/.MainActivity -e SNAKE BigBoss
 ```
 
+L’application n’affiche rien de visible dans son interface, mais cela ne signifie pas que l’exploitation a échoué.
+
+### Capture d’écran — Interface de l’application
+
+![Application](Images/3.png)
+
+*Figure 3 : Interface de l’application après lancement. Rien de visible côté UI, toute la sortie utile passe par les logs.*
+
 ---
 
 ## 11. Récupérer le flag dans les logs
@@ -224,49 +222,11 @@ adb logcat | grep -i "PWNSEC"
 
 Le flag apparaît alors dans `logcat`.
 
----
+### Capture d’écran — `logcat`
 
-## ✅ Résumé de l’exploitation
+![logcat](Images/5.png)
 
-Le challenge se résout en suivant cette chaîne logique :
-
-1. décompiler l’APK
-2. repérer l’extra d’intent `SNAKE=BigBoss`
-3. identifier la lecture du fichier `/storage/emulated/0/snake/Skull_Face.yml`
-4. comprendre que SnakeYAML désérialise des objets Java
-5. instancier `com.pwnsec.snake.BigBoss`
-6. lui passer la valeur `Snaaaaaaaaaaaaaake`
-7. lire le résultat dans `logcat`
+*Figure 4 : Le résultat final est visible dans les logs Android après l’exploitation.*
 
 ---
 
-## 📚 Commandes utiles
-
-```bash
-adb install -r snake.apk
-apktool d snake.apk
-adb shell am start -n com.pwnsec.snake/.MainActivity -e SNAKE BigBoss
-adb logcat | grep "YML File"
-adb shell mkdir -p /storage/emulated/0/snake
-adb push Skull_Face.yml /storage/emulated/0/snake/Skull_Face.yml
-adb logcat | grep -i "PWNSEC"
-```
-
----
-
-## 🧠 Conclusion
-
-Ce challenge mélange plusieurs éléments classiques du reverse Android :
-
-- analyse du manifest
-- inspection de code avec `jadx`
-- compréhension des intents
-- interaction avec l’application via `adb`
-- exploitation d’une désérialisation YAML
-
-Le point clé était de comprendre que l’application ne révélait rien visuellement, mais que toute la logique utile passait par :
-
-- un extra d’intent spécifique
-- un fichier YAML externe
-- une classe Java instanciée dynamiquement
-- les logs Android comme canal de sortie final
