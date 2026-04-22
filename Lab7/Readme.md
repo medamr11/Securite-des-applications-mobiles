@@ -1,4 +1,4 @@
-# MobSF avec Docker Desktop et Android Emulator — Guide complet en français
+# MobSF avec Docker Desktop et Android Emulator 
 
 ## 📌 Présentation
 
@@ -33,7 +33,7 @@ Avant de commencer, il faut disposer de :
 
 La première étape consiste à vérifier que **Docker Desktop** est bien lancé et que le moteur Docker fonctionne correctement.
 
-!\[Docker Desktop](Images/1(6).png)
+!\[Docker Desktop](./Images/1.png)
 
 **Figure 1 :** Docker Desktop en cours d'exécution sur Windows.
 
@@ -43,7 +43,7 @@ La première étape consiste à vérifier que **Docker Desktop** est bien lancé
 
 MobSF Dynamic Analyzer a besoin d'un appareil Android. Ici, un **Android Virtual Device (AVD)** est utilisé depuis Android Studio.
 
-!\[Android Device Manager](Images/2(6).png)
+!\[Android Device Manager](./Images/2.png)
 
 **Figure 2 :** Device Manager affichant les émulateurs Android disponibles.
 
@@ -60,7 +60,7 @@ cd Mobile-Security-Framework-MobSF
 
 Une fois le dépôt cloné, on peut vérifier les fichiers principaux du projet.
 
-!\[Clonage du projet MobSF](Images/3(6).png)
+!\[Clonage du projet MobSF](./Images/3.png)
 
 **Figure 3 :** Clonage du dépôt MobSF et affichage de son contenu.
 
@@ -85,7 +85,7 @@ Cette commande :
 * utilise un volume Docker pour conserver les données
 * indique à MobSF quel émulateur utiliser
 
-!\[Téléchargement de l'image Docker MobSF](Images/4.png)
+!\[Téléchargement de l'image Docker MobSF](./Images/4.png)
 
 **Figure 4 :** Téléchargement de l'image Docker MobSF lors du premier lancement.
 
@@ -102,7 +102,7 @@ Les logs montrent notamment :
 * l'environnement système
 * l'écoute sur le port 8000
 
-!\[Logs de démarrage MobSF](Images/4-2.png)
+!\[Logs de démarrage MobSF](./Images/4-2.png)
 
 **Figure 5 :** Logs de démarrage de MobSF dans le conteneur Docker.
 
@@ -124,7 +124,7 @@ L'analyse statique permet d'obtenir rapidement :
 * l'accès au manifeste Android
 * le code décompilé Java et Smali
 
-!\[Analyse statique DIVA](Images/5.png)
+!\[Analyse statique DIVA](./Images/5.png)
 
 **Figure 6 :** Résultat de l'analyse statique de l'application DIVA dans MobSF.
 
@@ -149,7 +149,7 @@ On retrouve également plusieurs scripts par défaut très utiles :
 * **Debugger Check Bypass**
 * **Clipboard Monitor**
 
-!\[Préparation de l'analyse dynamique](Images/6(4).png)
+!\[Préparation de l'analyse dynamique](./Images/6(4).png)
 
 **Figure 7 :** Interface d'analyse dynamique prête à instrumenter l'application.
 
@@ -166,7 +166,7 @@ Ces logs sont utiles pour :
 * repérer des actions déclenchées lors du lancement
 * suivre les composants Android utilisés
 
-!\[Logs Logcat](Images/7(4).png)
+!\[Logs Logcat](./Images/7(4).png)
 
 **Figure 8 :** Affichage des logs Logcat liés à l'application DIVA.
 
@@ -190,11 +190,11 @@ Dans ce cas, les tests affichés sont :
 * **TLS Pinning/Certificate Transparency Bypass Test**
 * **Cleartext Traffic Test**
 
-!\[Exécution des tests TLS SSL](Images/8(3).png)
+!\[Exécution des tests TLS SSL](./Images/8(3).png)
 
 **Figure 9 :** Exécution des tests TLS/SSL depuis MobSF.
 
-!\[Résultats des tests TLS SSL](Images/14.png)
+!\[Résultats des tests TLS SSL](./Images/14.png)
 
 **Figure 10 :** Résultats finaux du module TLS/SSL Security Tester.
 
@@ -213,13 +213,13 @@ Cela permet de :
 
 Exemple d'écran affichant des identifiants API :
 
-!\[Écran API Credentials](Images/9(3).png)
+!\[Écran API Credentials](./Images/9(3).png)
 
 **Figure 11 :** Interaction avec une activité de l'application DIVA dans l'émulateur.
 
 Exemple d'écran lié à un problème de validation d'entrée :
 
-!\[Écran Input Validation Issues](Images/10.png)
+!\[Écran Input Validation Issues](./Images/10.png)
 
 **Figure 12 :** Navigation manuelle dans une activité vulnérable de DIVA.
 
@@ -238,7 +238,7 @@ Ces scripts permettent de :
 * capturer des chaînes sensibles
 * surveiller des appels API
 
-!\[Chargement d'un script Frida de bypass émulateur](Images/11.png)
+!\[Chargement d'un script Frida de bypass émulateur](./Images/11.png)
 
 **Figure 13 :** Chargement d'un script Frida auxiliaire pour contourner la détection d'émulateur.
 
@@ -256,7 +256,7 @@ Il est aussi possible de sélectionner une activité précise à lancer, ce qui 
 
 Dans l'exemple ci-dessous, une activité liée aux **API credentials** est ciblée.
 
-!\[Injection et sélection d'activité](Images/12.png)
+!\[Injection et sélection d'activité](./Images/12.png)
 
 **Figure 14 :** Interface d'instrumentation Frida avec sélection d'une activité ciblée.
 
@@ -272,7 +272,7 @@ Cette fonctionnalité est utile pour :
 * comprendre la logique d'instrumentation
 * déboguer les hooks appliqués
 
-!\[Script Frida injecté](Images/13.png)
+!\[Script Frida injecté](./Images/13.png)
 
 **Figure 15 :** Fenêtre affichant le script Frida injecté par MobSF.
 
@@ -288,7 +288,7 @@ L'interface dynamique de MobSF fournit plusieurs fonctionnalités supplémentair
 * **Application Data** pour examiner les données internes
 * **Shell Access** pour interagir avec l'environnement Android
 
-!\[Vue d'ensemble des outils dynamiques](Images/14.png)
+!\[Vue d'ensemble des outils dynamiques](./Images/14.png)
 
 **Figure 16 :** Vue générale des outils mis à disposition pendant l'analyse dynamique.
 
