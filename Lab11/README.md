@@ -2,19 +2,19 @@
 
 ## Objectif
 
-Ce mini rapport explique comment bypasser la détection root de l’application **UnCrackable Level 1** avec **Frida**.
+Ce rapport explique comment bypasser la détection root de l’application **UnCrackable Level 1** avec **Frida**.
 
-L’application détecte que l’environnement est rooté et affiche le message :
-
-> Root detected! This is unacceptable. The app is now going to exit.
+L’application détecte que l’environnement est rooté et affiche une alerte indiquant que l’application va se fermer.
 
 ---
 
 ## 1. Détection du root par l’application
 
-Au lancement, l’application affiche une alerte indiquant que le root a été détecté.
+Au lancement, l’application affiche le message suivant :
 
-![Root detected](./Images/01_root_detected.png)
+> Root detected! This is unacceptable. The app is now going to exit.
+
+![Root detected](./Images/1.png)
 
 Cette alerte bloque l’utilisation normale de l’application.
 
@@ -22,7 +22,7 @@ Cette alerte bloque l’utilisation normale de l’application.
 
 ## 2. Lancement de frida-server
 
-Pour utiliser Frida, il faut d’abord lancer `frida-server` sur l’émulateur Android.
+Pour utiliser Frida, il faut lancer `frida-server` sur l’émulateur Android.
 
 Commande utilisée :
 
@@ -30,7 +30,7 @@ Commande utilisée :
 adb shell /data/local/tmp/frida-server
 ```
 
-![Frida server](./Images/02_frida_server.png)
+![Frida server](./Images/2.png)
 
 ---
 
@@ -38,7 +38,7 @@ adb shell /data/local/tmp/frida-server
 
 L’APK est ouvert avec **JADX** pour analyser le code Java décompilé.
 
-Dans `MainActivity`, on remarque les vérifications suivantes :
+Dans `MainActivity`, on remarque cette partie :
 
 ```java
 if (c.a() || c.b() || c.c()) {
@@ -46,23 +46,23 @@ if (c.a() || c.b() || c.c()) {
 }
 ```
 
-Cela signifie que l’application utilise les méthodes `a()`, `b()` et `c()` de la classe :
+Cela signifie que l’application utilise les méthodes `a()`, `b()` et `c()` pour détecter le root.
+
+La classe ciblée est :
 
 ```java
 sg.vantagepoint.a.c
 ```
 
-Si une de ces méthodes retourne `true`, l’application considère que le root est détecté.
+Si une de ces méthodes retourne `true`, l’application affiche l’alerte **Root detected!**.
 
-![JADX MainActivity](./Images/03_jadx_mainactivity.png)
+![JADX MainActivity](./Images/2-1.png)
 
 ---
 
 ## 4. Script Frida utilisé
 
-Le script Frida permet de modifier le comportement de l’application pendant son exécution.
-
-Fichier : `bypass.js`
+Le fichier `bypass.js` permet d’intercepter les fonctions de détection root.
 
 ```javascript
 Java.perform(function () {
@@ -92,16 +92,16 @@ Java.perform(function () {
 });
 ```
 
-![Bypass script](./Images/04_bypass_script.png)
+![Bypass script](./Images/3.png)
 
-### Explication rapide
+### Explication du script
 
 - `Java.perform()` attend que l’environnement Java Android soit prêt.
 - `Java.use("java.lang.System")` permet d’intercepter `System.exit()`.
 - `System.exit.implementation` empêche l’application de se fermer.
 - `Java.use("sg.vantagepoint.a.c")` cible la classe responsable de la détection root.
 - Les méthodes `a()`, `b()` et `c()` sont forcées à retourner `false`.
-- `false` signifie : **root non détecté**.
+- `false` signifie que le root n’est pas détecté.
 
 ---
 
@@ -113,7 +113,7 @@ Commande utilisée :
 python -m frida_tools.repl -U -f owasp.mstg.uncrackable1 -l .\bypass.js
 ```
 
-Résultat obtenu :
+Résultat affiché dans la console :
 
 ```text
 [+] Root detection bypass loaded
@@ -122,9 +122,9 @@ Résultat obtenu :
 [+] Bypass root check c()
 ```
 
-![Frida execution](./Images/05_frida_execution.png)
+![Frida execution](./Images/4.png)
 
-Le script est bien chargé et les trois méthodes de détection root sont interceptées.
+Le script est chargé correctement et les méthodes de détection root sont interceptées.
 
 ---
 
@@ -132,7 +132,7 @@ Le script est bien chargé et les trois méthodes de détection root sont interc
 
 Après le bypass, l’application ne se ferme plus et l’alerte root ne bloque plus l’interface.
 
-![Bypass success](./Images/06_bypass_success.png)
+![Bypass success](./Images/5.png)
 
 L’application est maintenant accessible normalement.
 
@@ -140,9 +140,9 @@ L’application est maintenant accessible normalement.
 
 ## Conclusion
 
-Le bypass fonctionne car Frida intercepte les méthodes responsables de la détection root au runtime.
+Le bypass fonctionne car Frida intercepte les méthodes responsables de la détection root pendant l’exécution de l’application.
 
-Au lieu de laisser l’application exécuter ses vérifications normalement, le script force les fonctions :
+Les méthodes suivantes :
 
 ```java
 c.a()
@@ -150,21 +150,25 @@ c.b()
 c.c()
 ```
 
-à retourner :
+sont forcées à retourner :
 
 ```java
 false
 ```
 
-Ainsi, l’application pense que l’appareil n’est pas rooté.
+Donc l’application pense que l’appareil n’est pas rooté.
 
 ---
 
 ## Commandes importantes
 
+Lancer `frida-server` :
+
 ```powershell
 adb shell /data/local/tmp/frida-server
 ```
+
+Lancer l’application avec le script Frida :
 
 ```powershell
 python -m frida_tools.repl -U -f owasp.mstg.uncrackable1 -l .\bypass.js
