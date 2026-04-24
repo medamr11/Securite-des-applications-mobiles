@@ -1,4 +1,4 @@
-# 🔥 Lab 10 — Analyse dynamique Android avec Frida (FireStorm)
+#  Lab 10 — Analyse dynamique Android avec Frida (FireStorm)
 
 ## 📌 Objectif du laboratoire
 
@@ -7,42 +7,6 @@ L’objectif est de préparer l’environnement, lancer `frida-server` sur un é
 
 ---
 
-## 🛠️ Outils utilisés
-
-- **Windows 10 / 11**
-- **Python 3.14.4**
-- **pip 26.0.1**
-- **Frida 17.9.1**
-- **frida-tools 14.8.1**
-- **ADB — Android Debug Bridge**
-- **Android Emulator x86_64**
-- Application cible : **FireStorm**
-- Scripts Frida :
-  - `hello.js`
-  - `hello-native.js`
-
----
-
-## 📂 Structure du projet
-
-```text
-Mobile_Security/
-└── Lab10/
-    ├── hello.js
-    ├── hello-native.js
-    ├── README.md
-    └── Images/
-        ├── 1.png
-        ├── 2.png
-        ├── 3.png
-        ├── 4.png
-        ├── 5.png
-        ├── 6.png
-        ├── 7.png
-        ├── 8.png
-        ├── 9.png
-        └── 10.png
-```
 
 ---
 
@@ -217,30 +181,6 @@ Always has been
 **Description :**  
 Cette capture montre l’interface principale de l’application FireStorm sur l’émulateur Android. L’interface visible ne révèle rien d’important directement, ce qui justifie l’utilisation de Frida pour l’analyse dynamique.
 
----
-
-## 1️⃣1️⃣ Recherche d’instances Java et génération Firebase
-
-Le script Frida permet aussi de rechercher les instances de `MainActivity` en mémoire et d’appeler des méthodes internes de l’application.
-
-![Recherche d’instances MainActivity](Images/11.png)
-
-**Description :**  
-La capture montre que Frida a trouvé une instance de `MainActivity` :
-
-```text
-[+] Instance de MainActivity trouvée : com.pwnsec.firestorm.MainActivity@8952362
-```
-
-Le script génère ensuite un mot de passe Firebase :
-
-```text
-[+] Mot de passe Firebase généré : C7_dotpsC7t7f_--In_i.IdttpaofoaIIdndnIfC
-```
-
-Cette étape montre que Frida peut interagir avec les objets Java de l’application et extraire ou générer des données internes.
-
----
 
 ## ✅ Résultat final
 
@@ -275,30 +215,3 @@ Cette approche est très utile pour :
 
 ---
 
-## 📚 Commandes principales utilisées
-
-```bash
-python --version
-pip --version
-pip install --upgrade frida frida-tools
-
-adb version
-adb devices
-adb shell getprop ro.product.cpu.abi
-
-adb push frida-server-17.9.1-android-x86_64/frida-server-17.9.1-android-x86_64 /data/local/tmp/frida-server
-adb shell chmod 755 /data/local/tmp/frida-server
-adb shell /data/local/tmp/frida-server
-
-adb forward tcp:27042 tcp:27042
-adb forward tcp:27043 tcp:27043
-
-python -m frida_tools.repl -U -f com.pwnsec.firestorm -l "C:\Users\elaam\OneDrive\Bureau\Mobile_Security\Lab10\hello.js"
-python -m frida_tools.repl -U -f com.pwnsec.firestorm -l "C:\Users\elaam\OneDrive\Bureau\Mobile_Security\Lab10\hello-native.js"
-```
-
----
-
-## 🏁 Auteur
-
-Réalisé dans le cadre d’un laboratoire de **Mobile Security / Android Dynamic Analysis**.
