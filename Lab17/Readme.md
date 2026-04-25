@@ -36,7 +36,7 @@ The emulator was detected as:
 emulator-5554    device
 ```
 
-![APK installation and device detection](<Images/1(9).png>)
+![APK installation and device detection](<Images/1.png>)
 
 ---
 
@@ -51,7 +51,7 @@ This is unacceptable. The app is now going to exit.
 
 This means the application contains anti-root, anti-debugging, and anti-tampering protections.
 
-![Rooting or tampering detected](<Images/2(9).png>)
+![Rooting or tampering detected](<Images/2.png>)
 
 ---
 
@@ -83,7 +83,7 @@ The application compares the real CRC values with expected values stored in the 
 
 If the CRC value is different, the app considers itself tampered.
 
-![JADX verifyLibs method](<Images/3(9).png>)
+![JADX verifyLibs method](<Images/3.png>)
 
 ---
 
@@ -101,7 +101,7 @@ tampered
 
 If one of these checks returns true, the application shows the tampering dialog.
 
-![JADX onCreate checks](<Images/4(8).png>)
+![JADX onCreate checks](<Images/4.png>)
 
 The condition finally triggers:
 
@@ -109,7 +109,7 @@ The condition finally triggers:
 showDialog("Rooting or tampering detected.");
 ```
 
-![Root detection logic](<Images/5(8).png>)
+![Root detection logic](<Images/5.png>)
 
 ---
 
@@ -130,7 +130,7 @@ Success!
 This is the correct secret.
 ```
 
-![JADX verify method](<Images/6(6).png>)
+![JADX verify method](<Images/6.png>)
 
 ---
 
@@ -142,7 +142,7 @@ To patch the protection logic, the APK was decompiled using Apktool.
 apktool d UnCrackable-Level3.apk -o uncrackable3
 ```
 
-![Apktool decompilation](<Images/7(6).png>)
+![Apktool decompilation](<Images/7.png>)
 
 The decompiled project contains:
 
@@ -154,7 +154,7 @@ AndroidManifest.xml
 apktool.yml
 ```
 
-![Decompiled project structure](<Images/8(5).png>)
+![Decompiled project structure](<Images/8.png>)
 
 ---
 
@@ -173,11 +173,11 @@ const-string v0, "Rooting or tampering detected."
 invoke-direct {p0, v0}, Lsg/vantagepoint/uncrackable3/MainActivity;->showDialog(Ljava/lang/String;)V
 ```
 
-![Smali detection dialog](<Images/9(5).png>)
+![Smali detection dialog](<Images/9.png>)
 
 The root/debug/tamper checks are executed before the application continues normally.
 
-![Smali root checks](<Images/10(2).png>)
+![Smali root checks](<Images/10.png>)
 
 ---
 
@@ -197,7 +197,7 @@ After modifying the smali code, the APK was rebuilt:
 apktool b uncrackable3 -o UnCrackable-Level3-patched.apk
 ```
 
-![Rebuild patched APK](<Images/11(1).png>)
+![Rebuild patched APK](<Images/11.png>)
 
 ---
 
@@ -209,7 +209,7 @@ Since the rebuilt APK is unsigned, a new keystore was generated using `keytool`.
 keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
 ```
 
-![Generate keystore](<Images/12(1).png>)
+![Generate keystore](<Images/12.png>)
 
 ---
 
@@ -221,7 +221,7 @@ The patched APK was signed using `apksigner`.
 apksigner sign --ks my-release-key.jks --out UnCrackable-Level3-final.apk UnCrackable-Level3-aligned.apk
 ```
 
-![Sign APK](<Images/13(1).png>)
+![Sign APK](<Images/13.png>)
 
 ---
 
@@ -233,7 +233,7 @@ The final signed APK was installed successfully on the emulator.
 adb install UnCrackable-Level3-final.apk
 ```
 
-![Install final APK](<Images/14(1).png>)
+![Install final APK](<Images/14.png>)
 
 After installation, the app opens normally without showing the tampering alert.
 
