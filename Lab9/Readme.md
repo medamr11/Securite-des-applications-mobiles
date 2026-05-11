@@ -82,7 +82,7 @@ Connexion établie entre la console Drozer et l’agent Android.
 
 ## Identification des informations du package
 
-![Package Infos](Images/9.png)
+![Package Infos](Images/6.png)
 
 Cette étape permet d’obtenir différentes informations concernant l’application :
 
@@ -104,7 +104,7 @@ Une mauvaise configuration peut exposer des informations sensibles.
 
 ## Recherche des providers exportés
 
-![Exported Providers](Images/12.png)
+![Exported Providers](Images/7.png)
 
 Le provider `NotesProvider` apparaît comme exporté sans protection spécifique.
 
@@ -114,7 +114,7 @@ Cela signifie qu’une application externe pourrait potentiellement lire ou modi
 
 ## Scan des URI disponibles
 
-![URI Scan](Images/15.png)
+![URI Scan](Images/8.png)
 
 Le scan des URI confirme que certaines routes sont accessibles publiquement.
 
@@ -174,49 +174,6 @@ android:debuggable="true"
 | V2 | Activities | Activités sensibles accessibles | Critique |
 | V3 | Application | Debug activé | Élevé |
 | V4 | SDK ancien | Compatibilité avec versions obsolètes | Moyen |
-
----
-
-# 🛠️ Recommandations
-
-## Sécuriser les composants exportés
-
-Définir :
-
-```xml
-android:exported="false"
-```
-
-pour tous les composants qui ne doivent pas être accessibles publiquement.
-
----
-
-## Ajouter des permissions personnalisées
-
-Limiter l’accès aux composants sensibles via des permissions de niveau `signature`.
-
----
-
-## Désactiver le mode debug
-
-Avant toute mise en production :
-
-```xml
-android:debuggable="false"
-```
-
----
-
-## Utiliser une version SDK récente
-
-Mettre à jour :
-
-```xml
-minSdkVersion
-targetSdkVersion
-```
-
-afin de profiter des correctifs de sécurité récents.
 
 ---
 
