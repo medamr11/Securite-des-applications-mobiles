@@ -1,4 +1,4 @@
-# 🛡️ Analyse de Sécurité Android avec Drozer — Étude Pratique DIVA
+# 🛡️ Lab 9 Analyse de Sécurité Android avec Drozer — Étude Pratique DIVA
 
 ## 📌 Introduction
 
@@ -9,7 +9,7 @@ Cette étude met en avant plusieurs scénarios d’exploitation réels afin de m
 
 ---
 
-# 🎯 Objectifs du TP
+# 🎯 Objectifs du LAB
 
 - Comprendre le fonctionnement du modèle de sécurité Android.
 - Découvrir l’utilisation du framework **Drozer**.
