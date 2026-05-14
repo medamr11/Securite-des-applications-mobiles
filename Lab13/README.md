@@ -1,6 +1,5 @@
 # LAB 13 : Android Root Detection Bypass with Objection
 
-![Environment](./Images/1.png)
 
 # Overview
 
@@ -106,21 +105,6 @@ android sslpinning disable
 
 ---
 
-# Project Structure
-
-```text
-├── Images/
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   ├── 6.png
-│   ├── 7.png
-│   └── 8.png
-│
-└── README.md
-```
 
 ---
 
