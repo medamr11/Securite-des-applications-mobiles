@@ -1,8 +1,4 @@
-# Android Root Detection Bypass Lab with Frida, Objection & Medusa
-
-<p align="center">
-  <img src="Images/10.png" width="700">
-</p>
+# LAB14 Android Root Detection Bypass Lab with Frida, Objection & Medusa
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android-green">
@@ -197,36 +193,4 @@ python medusa.py --help
 
 ---
 
-# Project Structure
 
-```text
-├── Images/
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   ├── 6.png
-│   ├── 7.png
-│   ├── 8.png
-│   ├── 9.png
-│   └── 10.png
-│
-├── hello.js
-├── bypass_root_basic.js
-└── README.md
-```
-
----
-
-# Disclaimer
-
-This project is for educational and authorized security testing purposes only.
-
----
-
-# References
-
-- https://frida.re
-- https://github.com/sensepost/objection
-- https://developer.android.com/tools/adb
