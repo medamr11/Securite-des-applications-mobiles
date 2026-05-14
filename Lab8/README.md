@@ -1,6 +1,5 @@
 # Mobile Application Security Analysis Lab Report
 
-![Screenshot](./Images/15.png)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android-green">
@@ -162,16 +161,3 @@ Normalization and classification of vulnerabilities.
 - Reduce dangerous permissions
 - Secure sensitive data storage
 
----
-
-# Disclaimer
-
-This project is intended for educational and authorized security testing purposes only.
-
----
-
-# References
-
-- https://owasp.org/www-project-mobile-top-10/
-- https://mas.owasp.org/
-- https://github.com/payatu/diva-android
