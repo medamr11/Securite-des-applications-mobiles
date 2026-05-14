@@ -1,6 +1,5 @@
 # Android HTTPS Inspection & SSL Pinning Bypass using Objection
 
-![Screenshot](./Images/10.png)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android-green">
@@ -221,42 +220,3 @@ Objection dynamically patches:
 This allows Burp Suite or mitmproxy certificates to be trusted at runtime.
 
 ---
-
-# Project Structure
-
-```text
-├── Images/
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   ├── 6.png
-│   ├── 7.png
-│   ├── 8.png
-│   ├── 9.png
-│   └── 10.png
-│
-└── README.md
-```
-
----
-
-# Disclaimer
-
-This project is intended for:
-
-- Educational purposes
-- Mobile application security testing
-- Authorized penetration testing
-
-Do not use these techniques without authorization.
-
----
-
-# References
-
-- https://frida.re
-- https://github.com/sensepost/objection
-- https://portswigger.net/burp
-- https://developer.android.com/tools/adb
