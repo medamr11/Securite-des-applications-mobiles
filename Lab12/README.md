@@ -1,6 +1,5 @@
 # Android Root Detection Bypass with Medusa
 
-![Screenshot](./Images/1.png)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android-green">
@@ -231,23 +230,7 @@ adb shell
 
 ---
 
-# Project Structure
 
-```text
-├── Images/
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   ├── 6.png
-│   ├── 7.png
-│   ├── 8.png
-│   └── 9.png
-│
-├── root_bypass.js
-└── README.md
-```
 
 ---
 
@@ -257,22 +240,3 @@ This lab demonstrates how Medusa and Frida can dynamically bypass Android root d
 
 The instrumentation hooks common root detection APIs and allows analysts to continue testing protected Android applications.
 
----
-
-# Disclaimer
-
-This project is intended for:
-
-- Educational purposes
-- Mobile security research
-- Authorized penetration testing
-
-Do not use these techniques on unauthorized applications or systems.
-
----
-
-# References
-
-- https://frida.re
-- https://github.com/Ch0pin/medusa
-- https://developer.android.com/tools/adb
