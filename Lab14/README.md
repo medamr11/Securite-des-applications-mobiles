@@ -1,7 +1,7 @@
 # Android Root Detection Bypass Lab with Frida, Objection & Medusa
 
 <p align="center">
-  <img src="Images/10(3).png" width="700">
+  <img src="Images/10.png" width="700">
 </p>
 
 <p align="center">
@@ -55,7 +55,7 @@ python -c "import frida; print(frida.__version__)"
 ```
 
 <p align="center">
-  <img src="Images/1(11).png" width="900">
+  <img src="Images/1.png" width="900">
 </p>
 
 ---
@@ -68,7 +68,7 @@ adb devices
 ```
 
 <p align="center">
-  <img src="Images/3(11).png" width="700">
+  <img src="Images/3.png" width="700">
 </p>
 
 ---
@@ -82,7 +82,7 @@ adb shell "/data/local/tmp/frida-server -l 0.0.0.0"
 ```
 
 <p align="center">
-  <img src="Images/4(10).png" width="900">
+  <img src="Images/4.png" width="900">
 </p>
 
 ---
@@ -94,7 +94,7 @@ frida-ps -Uai
 ```
 
 <p align="center">
-  <img src="Images/5(10).png" width="700">
+  <img src="Images/5.png" width="700">
 </p>
 
 ---
@@ -114,7 +114,7 @@ frida -U -f com.pwnsec.firestorm -l hello.js
 ```
 
 <p align="center">
-  <img src="Images/6(8).png" width="850">
+  <img src="Images/6.png" width="850">
 </p>
 
 ---
@@ -148,7 +148,7 @@ frida -U -f com.pwnsec.firestorm -l bypass_root_basic.js
 ```
 
 <p align="center">
-  <img src="Images/7(8).png" width="850">
+  <img src="Images/7.png" width="850">
 </p>
 
 ---
@@ -160,7 +160,7 @@ objection version
 ```
 
 <p align="center">
-  <img src="Images/8(7).png" width="500">
+  <img src="Images/8.png" width="500">
 </p>
 
 ```powershell
@@ -168,7 +168,7 @@ objection -g com.pwnsec.firestorm explore --startup-command "android root disabl
 ```
 
 <p align="center">
-  <img src="Images/9(7).png" width="900">
+  <img src="Images/9.png" width="900">
 </p>
 
 ---
@@ -180,7 +180,7 @@ python medusa.py -p com.pwnsec.firestorm
 ```
 
 <p align="center">
-  <img src="Images/2(11).png" width="900">
+  <img src="Images/2.png" width="900">
 </p>
 
 ---
@@ -192,7 +192,7 @@ python medusa.py --help
 ```
 
 <p align="center">
-  <img src="Images/10(3).png" width="900">
+  <img src="Images/10.png" width="900">
 </p>
 
 ---
@@ -201,16 +201,16 @@ python medusa.py --help
 
 ```text
 ├── Images/
-│   ├── 1(11).png
-│   ├── 2(11).png
-│   ├── 3(11).png
-│   ├── 4(10).png
-│   ├── 5(10).png
-│   ├── 6(8).png
-│   ├── 7(8).png
-│   ├── 8(7).png
-│   ├── 9(7).png
-│   └── 10(3).png
+│   ├── 1.png
+│   ├── 2.png
+│   ├── 3.png
+│   ├── 4.png
+│   ├── 5.png
+│   ├── 6.png
+│   ├── 7.png
+│   ├── 8.png
+│   ├── 9.png
+│   └── 10.png
 │
 ├── hello.js
 ├── bypass_root_basic.js
